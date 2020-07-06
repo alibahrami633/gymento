@@ -1,0 +1,23 @@
+.wrapper {
+  min-height: 100%;
+  padding-bottom: 100px;
+  padding-top: 5em;
+  font-family: 'Oxygen', sans-serif;
+}
+
+a:focus, a:hover {
+  
+  color: #ffcc00;
+  text-decoration: none;
+}
+a {
+  font-family: 'Roboto', sans-serif;
+  color: black;
+}
+
+i {
+  color: black;
+  margin-right: 0.5em;
+}
+
+

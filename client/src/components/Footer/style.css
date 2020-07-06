@@ -1,0 +1,66 @@
+footer {
+  color: rgb(160, 160, 160);
+  text-align: center;
+  background-color: #000000;
+  /* margin: auto; */
+  margin-top: 20px;
+  padding-top: 10px;
+  height: 50px;
+}
+
+footer a {
+  color: #e0dcdc;
+}
+
+footer i {
+  margin-right:0.25em;
+  margin-left: 1em;
+}
+
+footer a:focus, footer a:hover {
+  
+  color: #ffcc00;
+  text-decoration: none;
+}
+footer a {
+  font-family: 'Roboto', sans-serif;
+  color: white;
+}
+
+/* copyright section */
+footer span {
+  width: 50%;
+  margin: auto;
+  font-family: tahoma;
+  font-size: small;
+}
+
+footer i, i {
+  color: white;
+}
+
+/* Footer style */
+.box-shadow-style {
+  /* background-color: #61892F; */
+  color: white;
+  box-shadow: 1px 1px 10px 1px rgb(65, 65, 65);
+}
+
+.left-align {
+  text-align: left;
+}
+
+.inline-block {
+  display: inline-block;
+}
+
+.right-align {
+  text-align: right;
+}
+
+@media screen and (max-width: 992px) {
+  footer {
+    visibility: hidden;
+  }
+}
+
