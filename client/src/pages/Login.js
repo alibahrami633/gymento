@@ -22,6 +22,8 @@ function Login() {
             document.getElementById("login-btn").disabled = true;
 
             try {
+                document.getElementById("login-btn").disabled = true;
+                document.getElementById("login-form").reset();
                 console.log(`Login was successfull ${username}!`)
             } catch (error) {
                 console.log(error)
