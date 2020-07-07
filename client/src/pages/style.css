@@ -1,0 +1,69 @@
+.cool-link {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.cool-link::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: rgb(36, 36, 36);
+    transition: width .2s;
+}
+
+.cool-link:hover::after {
+    width: 100%;
+}
+
+.image-holder {
+    padding: 0rem 0.5rem 0.5rem 0rem; 
+    margin-bottom: 0.5rem;
+    width: 50%; 
+    float: right;
+}
+
+.image-holder img {
+    width: 100%;
+}
+
+.poem {
+    font: 14px Baskerville, "Palatino Linotype", "Times New Roman", Times, serif;
+    margin: auto;
+	padding: 20px 0;
+    text-align: left;
+    line-height: 1.5;
+}
+
+.name-cite {
+    font-weight: normal;
+    text-align: center;
+    color: #666;
+	font-size: 18px;
+	font-style: italic;
+	margin-bottom: 30px;
+}
+
+.name-cite:before {
+	content: '— ';
+}
+			
+.name-cite:after {
+	content: ' —';
+}
+
+/* make the first letter of the poem large */
+.poem:first-letter {
+	float: left;
+	font-size: 38px;
+	line-height: 1;
+	margin: 2px 5px 0 0;
+	}
+
+/* *****************************  */
+
+.image-text p {
+    text-align: justify;
+    hyphens: auto;
+}

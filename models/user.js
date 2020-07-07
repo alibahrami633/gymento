@@ -26,12 +26,12 @@ module.exports = function (sequelize, DataTypes) {
   User.prototype.validPassword = function (password) {
     return bcrypt.compareSync(password, this.password);
   };
-
-  User.associate = function (models) {
-    User.hasMany(models.Post, {
-      onDelete: "cascade",
-    });
-  };
+  //  // if there is any association between db models
+  // User.associate = function (models) {
+  //   User.hasMany(models.Post, {
+  //     onDelete: "cascade",
+  //   });
+  // };
 
   User.addHook("beforeCreate", function (user) {
     user.password = bcrypt.hashSync(
