@@ -2,7 +2,6 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import { Container } from "../Grid";
 import "./style.css";
-import aliImageUrl from "../../assets/images/pic-ali.jpg";
 
 function Nav() {
 
@@ -10,7 +9,6 @@ function Nav() {
     <nav className="navbar fixed-top navbar-expand-lg navbar-dark">
       <Container>
         <div className="navbar-header">
-          <img src={aliImageUrl} alt="Ali Bahrami" />
           <NavLink to="/home" className="navbar-brand" style={{ color: '#ffcc00' }} >
             Ali Bahrami
           </NavLink>

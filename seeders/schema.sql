@@ -1,0 +1,3 @@
+DROP DATABASE IF EXISTS gymento;
+CREATE DATABASE gymento;
+USE gymento;
