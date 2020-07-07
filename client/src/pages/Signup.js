@@ -37,7 +37,7 @@ function Signup() {
                     console.log(document.getElementById("signup_form").textContent);
                     document.getElementById("signup_form").reset();
 
-                    console.log(`Signup was successfull data => ${data.JSON()}!`);
+                    console.log(`Signup was successfull!`);
                     window.location.replace("/");
                 }
             } catch (error) {

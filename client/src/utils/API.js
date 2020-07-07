@@ -14,7 +14,7 @@ export default {
     return axios.post("/api/login", {
       email: userData.email,
       password: userData.password
-    })
+    });
   },
 
   userSignup: function (userData) {
@@ -22,7 +22,11 @@ export default {
       name: userData.name,
       email: userData.email,
       password: userData.password
-    })
+    });
+  },
+
+  getUserData: function () {
+    return axios.get("/api/user_data");
   }
   // ,
   // // Deletes the book with the given id

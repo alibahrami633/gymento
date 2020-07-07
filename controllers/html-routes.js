@@ -5,7 +5,7 @@ module.exports = function (app) {
     var hbsObject = {
       user: req.user,
     };
-    res.render("index", hbsObject);
+    res.render("home", hbsObject);
   });
 
   app.get("/signup", function (req, res) {

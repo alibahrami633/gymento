@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 import { NavLink } from "react-router-dom";
+
+import { UserContext } from '../context/UserContext'
 import { Container } from "../Grid";
+
 import "./style.css";
 
 function Nav() {
-
+  const { userState } = useContext(UserContext)
   return (
     <nav className="navbar fixed-top navbar-expand-lg navbar-dark">
       <Container>
@@ -12,6 +15,9 @@ function Nav() {
           <NavLink to="/home" className="navbar-brand" style={{ color: '#ffcc00' }} >
             Gymento
           </NavLink>
+        </div>
+        <div className="navbar-brand">
+          <span>logged in as: {userState && userState.name}</span>
         </div>
         <div>
           <div className="collapse navbar-collapse " id="collapsibleNavbar">
@@ -25,24 +31,28 @@ function Nav() {
                   Home
                 </NavLink>
               </li>
-              <li className="nav-item">
-                <NavLink
-                  to="/login"
-                  className="nav-link"
-                  activeClassName="nav-link active"
-                >
-                  Login
+              if({!userState}) {
+                <>
+                  <li className="nav-item">
+                    <NavLink
+                      to="/login"
+                      className="nav-link"
+                      activeClassName="nav-link active"
+                    >
+                      Login
                 </NavLink>
-              </li>
-              <li className="nav-item">
-                <NavLink
-                  to="/signup"
-                  className="nav-link"
-                  activeClassName="active"
-                >
-                  Signup
+                  </li>
+                  <li className="nav-item">
+                    <NavLink
+                      to="/signup"
+                      className="nav-link"
+                      activeClassName="active"
+                    >
+                      Signup
                 </NavLink>
-              </li>
+                  </li>
+                </>
+              }
             </ul>
           </div>
         </div>
