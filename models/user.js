@@ -27,8 +27,8 @@ module.exports = function (sequelize, DataTypes) {
     return bcrypt.compareSync(password, this.password);
   };
   //  // if there is any association between db models
-  // User.associate = function (models) {
-  //   User.hasMany(models.Post, {
+  // User.associate = function (modelName) {
+  //   User.hasMany(modelName.Post, {
   //     onDelete: "cascade",
   //   });
   // };

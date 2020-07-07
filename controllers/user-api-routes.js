@@ -11,10 +11,16 @@ module.exports = function (app) {
       const result = await db.User.create(
         ({ name, email, password } = req.body)
       );
+      console.log(result.JSON());
       res.redirect(307, "/api/login");
     } catch (error) {
-      console.log(error);
-      res.status(500).send("Signup failed!");
+      if (error & error != "ER_DUP_ENTRY") {
+        // console.log(error);
+        res.status(500).send("Signup failed!");
+      }
+      else {
+        res.status(409).send("Email already exists!");
+      }
     }
   });
 

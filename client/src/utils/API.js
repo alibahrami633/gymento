@@ -15,6 +15,14 @@ export default {
       email: userData.email,
       password: userData.password
     })
+  },
+
+  userSignup: function (userData) {
+    return axios.post("/api/signup", {
+      name: userData.name,
+      email: userData.email,
+      password: userData.password
+    })
   }
   // ,
   // // Deletes the book with the given id

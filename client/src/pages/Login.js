@@ -21,15 +21,10 @@ function Login() {
                 email: formObject.email.trim(),
                 password: formObject.password.trim()
             }
-
             document.getElementById("login-btn").disabled = true;
-
             try {
                 const data = await API.userLogin(userData);
                 document.getElementById("login-btn").disabled = true;
-                document.getElementById("login-form").reset();
-                console.log(`Login was successfull ${userData.email}!`)
-
                 window.location.replace("/");
             } catch (error) {
                 console.log(error)

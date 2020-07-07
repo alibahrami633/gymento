@@ -3,6 +3,7 @@ import { Container, Row, Col } from "../components/Grid";
 import Pageheader from "../components/Pageheader";
 import Maincontent from "../components/Maincontent";
 import { Form, Input, FormBtn } from "../components/Form";
+import API from "../utils/API";
 import "./style.css";
 import { compareSync } from "bcryptjs";
 
@@ -16,25 +17,28 @@ function Signup() {
 
     async function handleSignupSubmit(event) {
         event.preventDefault();
-        if (formObject.username && formObject.password) {
-            let email = formObject.email.trim();
-            let username = formObject.username.trim();
-            let password = formObject.password.trim();
-            let re_password = formObject.re_password.trim();
+        if (formObject.name && formObject.email && formObject.password) {
+            let userData = {
+                email: formObject.email.trim(),
+                name: formObject.name.trim(),
+                password: formObject.password.trim(),
+                re_password: formObject.re_password.trim()
+            }
 
             document.getElementById("signup_btn").disabled = true;
 
             try {
-                if (password === re_password) {
+                if (userData.password !== userData.re_password) {
+                    console.log("Both password fields must match...");
+                } else {
+                    const data = await API.userSignup(userData);
+
                     document.getElementById("signup_btn").disabled = true;
                     console.log(document.getElementById("signup_form").textContent);
                     document.getElementById("signup_form").reset();
 
-                    console.log(`Signup was successfull ${username}!`);
-                }
-                else {
-                    document.getElementById("signup_btn").disabled = false;
-                    console.log("Both password fields must match...");
+                    console.log(`Signup was successfull data => ${data.JSON()}!`);
+                    window.location.replace("/");
                 }
             } catch (error) {
                 console.log(error);
@@ -66,8 +70,8 @@ function Signup() {
                                 <Input
                                     onChange={handleInputChange}
                                     type="text"
-                                    name="username"
-                                    placeholder="Username (required)"
+                                    name="name"
+                                    placeholder="Name (required)"
                                 />
                                 <Input
                                     onChange={handleInputChange}
@@ -83,7 +87,7 @@ function Signup() {
                                 />
                                 <FormBtn
                                     id="signup_btn"
-                                    disabled={!(formObject.username && formObject.password && formObject.re_password && formObject.email)}
+                                    disabled={!(formObject.name && formObject.password && formObject.re_password && formObject.email)}
                                     onClick={handleSignupSubmit}
                                 >Signup
                                 </FormBtn>
