@@ -3,6 +3,7 @@ import { Container, Row, Col } from "../components/Grid";
 import Pageheader from "../components/Pageheader";
 import Maincontent from "../components/Maincontent";
 import { Form, Input, FormBtn } from "../components/Form";
+import API from "../utils/API";
 import "./style.css";
 
 function Login() {
@@ -15,16 +16,21 @@ function Login() {
 
     async function handleLoginSubmit(event) {
         event.preventDefault();
-        if (formObject.username && formObject.password) {
-            let username = formObject.username.trim();
-            let password = formObject.password.trim();
+        if (formObject.email && formObject.password) {
+            let userData = {
+                email: formObject.email.trim(),
+                password: formObject.password.trim()
+            }
 
             document.getElementById("login-btn").disabled = true;
 
             try {
+                const data = await API.userLogin(userData);
                 document.getElementById("login-btn").disabled = true;
                 document.getElementById("login-form").reset();
-                console.log(`Login was successfull ${username}!`)
+                console.log(`Login was successfull ${userData.email}!`)
+
+                window.location.replace("/");
             } catch (error) {
                 console.log(error)
             }
@@ -49,8 +55,8 @@ function Login() {
                                 <Input
                                     onChange={handleInputChange}
                                     type="text"
-                                    name="username"
-                                    placeholder="Username (required)"
+                                    name="email"
+                                    placeholder="Email (required)"
                                 />
                                 <Input
                                     onChange={handleInputChange}
@@ -60,7 +66,7 @@ function Login() {
                                 />
                                 <FormBtn
                                     id="login-btn"
-                                    disabled={!(formObject.username && formObject.password)}
+                                    disabled={!(formObject.email && formObject.password)}
                                     onClick={handleLoginSubmit}
                                 >Login
                                 </FormBtn>

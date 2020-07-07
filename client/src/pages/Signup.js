@@ -17,6 +17,7 @@ function Signup() {
     async function handleSignupSubmit(event) {
         event.preventDefault();
         if (formObject.username && formObject.password) {
+            let email = formObject.email.trim();
             let username = formObject.username.trim();
             let password = formObject.password.trim();
             let re_password = formObject.re_password.trim();
@@ -59,6 +60,12 @@ function Signup() {
                                 <Input
                                     onChange={handleInputChange}
                                     type="text"
+                                    name="email"
+                                    placeholder="Email (required)"
+                                />
+                                <Input
+                                    onChange={handleInputChange}
+                                    type="text"
                                     name="username"
                                     placeholder="Username (required)"
                                 />
@@ -76,7 +83,7 @@ function Signup() {
                                 />
                                 <FormBtn
                                     id="signup_btn"
-                                    disabled={!(formObject.username && formObject.password && formObject.re_password)}
+                                    disabled={!(formObject.username && formObject.password && formObject.re_password && formObject.email)}
                                     onClick={handleSignupSubmit}
                                 >Signup
                                 </FormBtn>

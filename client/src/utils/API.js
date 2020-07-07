@@ -8,6 +8,13 @@ export default {
   // Gets the user with the given id
   getUser: function (id) {
     return axios.get("/api/users/" + id);
+  },
+
+  userLogin: function (userData) {
+    return axios.post("/api/login", {
+      email: userData.email,
+      password: userData.password
+    })
   }
   // ,
   // // Deletes the book with the given id
