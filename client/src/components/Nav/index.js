@@ -10,7 +10,7 @@ function Nav() {
       <Container>
         <div className="navbar-header">
           <NavLink to="/home" className="navbar-brand" style={{ color: '#ffcc00' }} >
-            Ali Bahrami
+            Gymento
           </NavLink>
         </div>
         <div>
@@ -27,20 +27,20 @@ function Nav() {
               </li>
               <li className="nav-item">
                 <NavLink
-                  to="/portfolio"
+                  to="/login"
                   className="nav-link"
                   activeClassName="nav-link active"
                 >
-                  Portfolio
+                  Login
                 </NavLink>
               </li>
               <li className="nav-item">
                 <NavLink
-                  to="/contact"
+                  to="/signup"
                   className="nav-link"
                   activeClassName="active"
                 >
-                  Contact
+                  Signup
                 </NavLink>
               </li>
             </ul>
